@@ -5,7 +5,7 @@ buildscript {
         nav_version = '2.2.0-rc03'
         koin_version = '2.0.1'
         recycler_view_version = '1.1.0'
-        lifecycle_version = '2.2.0'
+        lifecycle_version =  '2.2.0'
     }
 
     repositories {
