@@ -134,6 +134,7 @@
                     android:background="@drawable/ic_edit"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:onClick="@{(view) -> viewModel.showDateTimePickerDialog()}"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_margin="8dp"
                     android:contentDescription="TODO" />
