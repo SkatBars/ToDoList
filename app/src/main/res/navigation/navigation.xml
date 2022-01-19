@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/createTaskFragment">
+
+    <fragment
+        android:id="@+id/createTaskFragment"
+        android:name="com.example.todolist.createTask.CreateTaskFragment"
+        android:label="CreateTaskFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.todolist.SplashFragment"
+        android:label="SplashFragment" />
+</navigation>
