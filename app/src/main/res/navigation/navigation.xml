@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/createTaskFragment">
+    app:startDestination="@id/listTaskFragment">
 
     <fragment
         android:id="@+id/createTaskFragment"
@@ -12,4 +13,9 @@
         android:id="@+id/splashFragment"
         android:name="com.example.todolist.SplashFragment"
         android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/listTaskFragment"
+        android:name="com.example.todolist.listTask.ListTaskFragment"
+        android:label="list_task_fragment"
+        tools:layout="@layout/list_task_fragment" />
 </navigation>
