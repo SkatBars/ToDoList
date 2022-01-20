@@ -30,6 +30,7 @@ class ListTaskFragment : Fragment() {
         configureAppBar()
         configureBinding(inflater, container)
         setupObserverViewModel()
+        viewModel.getTasksByDate()
         return binding.root
     }
 

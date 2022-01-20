@@ -12,9 +12,6 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 class ListTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
-    init {
-        getTasksByDate()
-    }
 
     private var _tasks = MutableLiveData<List<Task>>()
     val tasks: LiveData<List<Task>>
@@ -28,7 +25,7 @@ class ListTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
     val openCreateTaskEvent: LiveData<Event<Unit>>
         get() = _openCreateTaskEvent
 
-    private fun getTasksByDate() {
+    fun getTasksByDate() {
         val currentDate = Calendar.getInstance().time
         val tasksByCurrentDay = mutableListOf<Task>()
         viewModelScope.launch {
