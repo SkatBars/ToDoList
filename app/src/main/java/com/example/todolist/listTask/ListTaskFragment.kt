@@ -17,6 +17,7 @@ class ListTaskFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().window.statusBarColor = requireActivity().getColor(R.color.blue_500)
         return inflater.inflate(R.layout.list_task_fragment, container, false)
     }
 
