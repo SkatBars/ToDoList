@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todolist.R
 import com.example.todolist.data.Task
 import com.example.todolist.databinding.TaskItemLayoutBinding
 
