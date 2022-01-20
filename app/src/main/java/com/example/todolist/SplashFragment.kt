@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.navigation.fragment.findNavController
+import com.example.todolist.databinding.FragmentSplashBinding
 
 class SplashFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.M)
@@ -16,6 +18,12 @@ class SplashFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         requireActivity().window.statusBarColor = requireContext().getColor(R.color.blue_700)
-        return inflater.inflate(R.layout.fragment_splash, container, false)
+        val binding = FragmentSplashBinding.inflate(inflater, container, false)
+
+        binding.startBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_splashFragment_to_listTaskFragment)
+        }
+
+        return binding.root
     }
 }

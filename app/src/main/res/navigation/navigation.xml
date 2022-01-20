@@ -12,10 +12,21 @@
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.todolist.SplashFragment"
-        android:label="SplashFragment" />
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_listTaskFragment"
+            app:destination="@id/listTaskFragment"
+            app:popUpTo="@id/navigation" />
+    </fragment>
     <fragment
         android:id="@+id/listTaskFragment"
         android:name="com.example.todolist.listTask.ListTaskFragment"
         android:label="list_task_fragment"
-        tools:layout="@layout/list_task_fragment" />
+        tools:layout="@layout/list_task_fragment" >
+        <action
+            android:id="@+id/action_listTaskFragment_to_createTaskFragment"
+            app:destination="@id/createTaskFragment"
+            app:popUpTo="@id/createTaskFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
