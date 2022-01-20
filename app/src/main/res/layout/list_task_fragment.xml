@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:onClick="@{(view) -> view}"
+                android:onClick="@{(view) -> viewModel.openCreateTask()}"
                 android:src="@drawable/ic_add"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
