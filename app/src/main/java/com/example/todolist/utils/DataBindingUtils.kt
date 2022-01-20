@@ -30,7 +30,7 @@ fun setStatusColor(view: View, task: Task) {
             view.context.getColor(R.color.green_500)
         } else {
             val currentDate = Calendar.getInstance().time
-            if (currentDate.time < task.date.time) {
+            if (currentDate.time > task.date.time) {
                 view.context.getColor(R.color.red_500)
             } else {
                 view.context.getColor(R.color.orange_500)
