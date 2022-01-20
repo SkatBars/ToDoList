@@ -29,6 +29,7 @@
                 android:id="@+id/back_background_btn"
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
+                android:onClick="@{(view) -> viewModel.openListTaskFragment()}"
                 android:background="@drawable/back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

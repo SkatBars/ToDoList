@@ -39,7 +39,7 @@ class CreateTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
         _showDateTimePickerDialogEvent.value = Event(Unit)
     }
 
-    private fun openListTaskFragment() {
+    fun openListTaskFragment() {
         _openListTaskFragmentEvent.value = Event(Unit)
     }
 }
