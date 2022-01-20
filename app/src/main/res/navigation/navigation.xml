@@ -16,6 +16,7 @@
         <action
             android:id="@+id/action_splashFragment_to_listTaskFragment"
             app:destination="@id/listTaskFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
             app:popUpTo="@id/navigation" />
     </fragment>
     <fragment
@@ -26,6 +27,8 @@
         <action
             android:id="@+id/action_listTaskFragment_to_createTaskFragment"
             app:destination="@id/createTaskFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_out"
             app:popUpTo="@id/createTaskFragment"
             app:popUpToInclusive="true" />
     </fragment>
