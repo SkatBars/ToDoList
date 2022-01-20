@@ -5,4 +5,5 @@
     <string name="title">TODOLIST</string>
     <string name="hint_title_task">Введите название задачи</string>
     <string name="hint_description_task">Введите описание задачи</string>
+    <string name="save">Сохранить</string>
 </resources>

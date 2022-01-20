@@ -60,6 +60,10 @@ class CreateTaskFragment : Fragment() {
                 showDatePicker()
             }
         })
+
+        viewModel.showToastEvent.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+        })
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
