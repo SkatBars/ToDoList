@@ -55,7 +55,7 @@ class ListTaskFragment : Fragment() {
 
     private fun configureRecyclerView(tasks: List<Task>) {
         val layoutManager = LinearLayoutManager(context)
-        binding.taskRecyclerView.adapter = TaskAdapterRecyclerView(tasks)
+        binding.taskRecyclerView.adapter = TaskAdapterRecyclerView(tasks, viewModel)
         binding.taskRecyclerView.layoutManager = layoutManager
     }
 

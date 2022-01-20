@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.data.Task
 import com.example.todolist.databinding.TaskItemLayoutBinding
 
-class TaskAdapterRecyclerView(private val tasks: List<Task>) : RecyclerView.Adapter<TaskAdapterRecyclerView.TaskHolder>() {
+class TaskAdapterRecyclerView(private val tasks: List<Task>, private val viewModel: ListTaskViewModel) : RecyclerView.Adapter<TaskAdapterRecyclerView.TaskHolder>() {
 
     class TaskHolder(private val binding: TaskItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(task: Task) {
+        fun bind(task: Task, viewModel: ListTaskViewModel) {
             binding.task = task
+            binding.viewModel = viewModel
 
             binding.taskCardView.setOnClickListener {
                 if (binding.descriptionTaskItem.visibility == View.GONE) {
@@ -22,7 +23,13 @@ class TaskAdapterRecyclerView(private val tasks: List<Task>) : RecyclerView.Adap
                     hideDetailTask()
                 }
             }
+
+            binding.taskSuccessCheckBox.setOnClickListener {
+                viewModel.changedSuccess(task)
+                binding.invalidateAll()
+            }
         }
+
 
         private fun showDetailTask() {
             binding.descriptionTaskItem.visibility = View.VISIBLE
@@ -49,7 +56,7 @@ class TaskAdapterRecyclerView(private val tasks: List<Task>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: TaskHolder, position: Int) {
-        holder.bind(tasks[position])
+        holder.bind(tasks[position], viewModel)
     }
 
     override fun getItemCount(): Int {

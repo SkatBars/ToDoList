@@ -45,6 +45,13 @@ class ListTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
         }
     }
 
+    fun changedSuccess(task: Task) {
+        task.isSuccess = !(task.isSuccess)
+        viewModelScope.launch {
+            db.taskDao().update(task)
+        }
+    }
+
     fun openCreateTask() {
         _openCreateTaskEvent.value = Event(Unit)
     }

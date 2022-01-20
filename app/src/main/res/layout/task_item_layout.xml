@@ -7,6 +7,9 @@
         <variable
             name="task"
             type="com.example.todolist.data.Task" />
+        <variable
+            name="viewModel"
+            type="com.example.todolist.listTask.ListTaskViewModel" />
     </data>
 
     <LinearLayout
@@ -50,7 +53,7 @@
                     android:id="@+id/status_task_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{task.success}"
+                    android:text="@{String.valueOf(task.success)}"
                     app:layout_constraintStart_toEndOf="@id/status_task_color"
                     app:layout_constraintTop_toBottomOf="@id/title_task_item"
                     android:layout_marginTop="8dp"
