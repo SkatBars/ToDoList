@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment.STYLE_NO_INPUT
+import androidx.navigation.fragment.findNavController
 import com.example.todolist.EventObserver
 import com.example.todolist.R
 import com.example.todolist.data.Task
@@ -35,7 +36,6 @@ class CreateTaskFragment : Fragment() {
     ): View? {
         configureBinding(inflater, container)
         observeViewModel()
-
         binding.dateEditBtn.setOnClickListener {
             showDatePicker()
         }
@@ -58,6 +58,12 @@ class CreateTaskFragment : Fragment() {
         viewModel.showDateTimePickerDialogEvent.observe(viewLifecycleOwner, EventObserver {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 showDatePicker()
+            }
+        })
+
+        viewModel.openListTaskFragmentEvent.observe(viewLifecycleOwner, EventObserver {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                findNavController().popBackStack()
             }
         })
 

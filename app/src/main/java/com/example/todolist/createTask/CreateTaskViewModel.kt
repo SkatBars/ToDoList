@@ -15,6 +15,10 @@ class CreateTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
     val showDateTimePickerDialogEvent: LiveData<Event<Unit>>
         get() = _showDateTimePickerDialogEvent
 
+    private var _openListTaskFragmentEvent = MutableLiveData<Event<Unit>>()
+    val openListTaskFragmentEvent: LiveData<Event<Unit>>
+        get() = _openListTaskFragmentEvent
+
     private var _showToastEvent = MutableLiveData<String>()
     val showToastEvent: LiveData<String>
         get() = _showToastEvent
@@ -23,6 +27,7 @@ class CreateTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
     fun insertTask(task: Task) {
         viewModelScope.launch {
             db.taskDao().insert(task)
+            openListTaskFragment()
         }.start()
     }
 
@@ -32,5 +37,9 @@ class CreateTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
 
     fun showDateTimePickerDialog() {
         _showDateTimePickerDialogEvent.value = Event(Unit)
+    }
+
+    private fun openListTaskFragment() {
+        _openListTaskFragmentEvent.value = Event(Unit)
     }
 }
