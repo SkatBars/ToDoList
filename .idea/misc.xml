@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14322916666666666" />
         <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/drawable/back_btn.xml" value="0.1935185185185185" />
+        <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/drawable/background_list_task.xml" value="0.14322916666666666" />
         <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/drawable/foreground.xml" value="0.14322916666666666" />
         <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14322916666666666" />
         <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/drawable/ic_menu.xml" value="0.1935185185185185" />
@@ -14,6 +15,7 @@
         <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/layout/fragment_splash.xml" value="0.12708333333333333" />
         <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/layout/list_task_fragment.xml" value="0.1" />
         <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/layout/task_item_layout.xml" value="0.2" />
+        <entry key="..\:/Projects/Android/ToDoList/app/src/main/res/menu/menu.xml" value="0.2" />
       </map>
     </option>
   </component>
