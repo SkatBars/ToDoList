@@ -3,10 +3,12 @@ package com.example.todolist.utils
 import android.annotation.SuppressLint
 import android.view.View
 import android.widget.TextView
+import android.widget.Toolbar
 import androidx.databinding.BindingAdapter
 import androidx.databinding.BindingConversion
 import com.example.todolist.R
 import com.example.todolist.data.Task
+import com.google.android.material.appbar.MaterialToolbar
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,6 +39,11 @@ fun setStatusColor(view: View, task: Task) {
             }
         }
     )
+}
 
-
+@SuppressLint("SimpleDateFormat")
+@BindingAdapter("setDateInTitle")
+fun setDateInTitle(view: MaterialToolbar, date: Date) {
+    val formatter = SimpleDateFormat("Дата: dd-MM-yyyy")
+    view.title = formatter.format(date)
 }

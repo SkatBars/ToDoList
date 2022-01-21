@@ -7,6 +7,9 @@
         <variable
             name="viewModel"
             type="com.example.todolist.listTask.ListTaskViewModel" />
+        <variable
+            name="date"
+            type="java.util.Date" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +26,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="@string/title"
+            setDateInTitle="@{date}"
             app:titleTextColor="@color/white" />
 
         <androidx.constraintlayout.widget.ConstraintLayout

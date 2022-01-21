@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.todolist.Event
 import com.example.todolist.data.Task
 import com.example.todolist.data.TaskRoomDatabase
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -24,6 +23,10 @@ class ListTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
     private var _openCreateTaskEvent = MutableLiveData<Event<Unit>>()
     val openCreateTaskEvent: LiveData<Event<Unit>>
         get() = _openCreateTaskEvent
+
+    private var _date = MutableLiveData<Date>(Calendar.getInstance().time)
+    val chosenDate: LiveData<Date>
+        get() = _date
 
     fun getTasksByDate() {
         val currentDate = Calendar.getInstance().time

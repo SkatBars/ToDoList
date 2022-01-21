@@ -1,12 +1,10 @@
 package com.example.todolist.listTask
 
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -41,6 +39,10 @@ class ListTaskFragment : Fragment() {
     private fun setupObserverViewModel() {
         viewModel.tasks.observe(viewLifecycleOwner, Observer {
             configureRecyclerView(it)
+        })
+
+        viewModel.chosenDate.observe(viewLifecycleOwner, Observer {
+            binding.date = it
         })
 
         viewModel.openCreateTaskEvent.observe(viewLifecycleOwner, EventObserver {
