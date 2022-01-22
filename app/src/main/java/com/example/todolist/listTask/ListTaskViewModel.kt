@@ -24,21 +24,20 @@ class ListTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
     val openCreateTaskEvent: LiveData<Event<Unit>>
         get() = _openCreateTaskEvent
 
-    private var _date = MutableLiveData<Date>(Calendar.getInstance().time)
+    private var _chosenDate = MutableLiveData<Date>(Calendar.getInstance().time)
     val chosenDate: LiveData<Date>
-        get() = _date
+        get() = _chosenDate
 
     fun getTasksByDate() {
-        val currentDate = Calendar.getInstance().time
         val tasksByCurrentDay = mutableListOf<Task>()
         viewModelScope.launch {
             val data = db.taskDao().getTasksByDate()
             data.let {
                 for (task in it) {
                     val date = task.date
-                    if (date.day == currentDate.day
-                        && date.month == currentDate.month
-                        && date.year == currentDate.year) {
+                    if (date.day == chosenDate.value!!.day
+                        && date.month == chosenDate.value!!.month
+                        && date.year == chosenDate.value!!.year) {
                         tasksByCurrentDay.add(task)
                     }
                 }
@@ -57,5 +56,10 @@ class ListTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
 
     fun openCreateTask() {
         _openCreateTaskEvent.value = Event(Unit)
+    }
+
+    fun updateChosenDate(time: Long) {
+        _chosenDate.value = Date(time)
+        getTasksByDate()
     }
 }

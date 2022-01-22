@@ -42,4 +42,6 @@ class CreateTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
     fun openListTaskFragment() {
         _openListTaskFragmentEvent.value = Event(Unit)
     }
+
+
 }

@@ -1,10 +1,9 @@
 package com.example.todolist.listTask
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -13,6 +12,7 @@ import com.example.todolist.EventObserver
 import com.example.todolist.R
 import com.example.todolist.data.Task
 import com.example.todolist.databinding.ListTaskFragmentBinding
+import com.google.android.material.datepicker.MaterialDatePicker
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ListTaskFragment : Fragment() {
@@ -25,8 +25,8 @@ class ListTaskFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        configureAppBar()
         configureBinding(inflater, container)
+        configureAppBar()
         setupObserverViewModel()
         viewModel.getTasksByDate()
         return binding.root
@@ -34,6 +34,19 @@ class ListTaskFragment : Fragment() {
 
     private fun configureAppBar() {
         requireActivity().window.statusBarColor = requireActivity().getColor(R.color.blue_700)
+        binding.materialToolbar.menu.getItem(0).setOnMenuItemClickListener {
+            showDatePickerDialog()
+            true
+        }
+    }
+
+    private fun showDatePickerDialog() {
+        Toast.makeText(context, "dsfsdf", Toast.LENGTH_LONG).show()
+        val dpd = MaterialDatePicker.Builder.datePicker().build()
+        dpd.addOnPositiveButtonClickListener {
+            viewModel.updateChosenDate(it)
+        }
+        dpd.show(requireActivity().supportFragmentManager, "tag")
     }
 
     private fun setupObserverViewModel() {
