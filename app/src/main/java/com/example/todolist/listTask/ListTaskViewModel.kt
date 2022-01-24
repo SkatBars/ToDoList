@@ -47,6 +47,13 @@ class ListTaskViewModel(private val db: TaskRoomDatabase) : ViewModel() {
         }
     }
 
+    fun deleteTask(task: Task) {
+        viewModelScope.launch {
+            db.taskDao().delete(task)
+            getTasksByDate()
+        }
+    }
+
     fun changedSuccess(task: Task) {
         task.isSuccess = !(task.isSuccess)
         viewModelScope.launch {
